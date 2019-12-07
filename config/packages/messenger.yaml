@@ -1,0 +1,12 @@
+framework:
+    messenger:
+        transports:
+            calculate_file_hashes: '%env(MESSENGER_TRANSPORT_DSN)%calsulate_file_hashes'
+            complete_check_video: '%env(MESSENGER_TRANSPORT_DSN)%complete_check_video'
+            generate_thumbnail: '%env(MESSENGER_TRANSPORT_DSN)%generate_thumbnail'
+            persist_video_status: '%env(MESSENGER_TRANSPORT_DSN)%persist_video_status'
+        routing:
+            'Pbxg33k\MessagePack\Message\PersistVideoStatusMessage': persist_video_status
+            'Pbxg33k\MessagePack\Message\CalculateFileHashesMessage': calculate_file_hashes
+            'Pbxg33k\MessagePack\Message\GenerateThumbnailMessage': generate_thumbnail
+            'Pbxg33k\MessagePack\Message\VideoCheckedMessage': complete_check_video
